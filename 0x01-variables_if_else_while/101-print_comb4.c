@@ -7,28 +7,37 @@
  */
 int main(void)
 {
-	int hundreds, tens, ones;
-	int count = 0;
+	int num1, num2, num3;
 
-	for (hundreds = 0; hundreds <= 9; hundreds++)
+	num1 = '0';
+	num2 = '0';
+	num3 = '0';
+
+	while (num1 <= '9')
 	{
-		for (tens = 0; tens <= 9; tens++)
+		while (num2 <= '9')
 		{
-			for (ones = 0; ones <= 9; ones++)
+			num3 = '0';
+			while (num3 <= '9')
 			{
-				if (hundreds != tens && hundreds != ones && tens != ones)
+				if (num1 < num2 && num2 < num3)
 				{
-					printf("%d%d%d", hundreds, tens, ones);
-					count++;
+					putchar(num1);
+					putchar(num2);
+					putchar(num3);
 
-					if (count != 599)
-						{
-							putchar(',');
-							putchar(' ');
-						}
+					if (num1 != '7')
+					{
+						putchar(',');
+						putchar(' ');
+					}
 				}
+				num3++;
 			}
+			num2++;
 		}
+		num1++;
+		num2 = '0';
 	}
 	putchar('\n');
 	return (0);
