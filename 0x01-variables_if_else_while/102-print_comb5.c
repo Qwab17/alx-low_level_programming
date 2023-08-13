@@ -18,7 +18,7 @@ int main(void)
 		for (j = 0; j < 100; j++)
 		{
 			c = j / 10;
-			d = i % 10;
+			d = j % 10;
 
 			if (a < c || (a == c && b < d))
 			{
