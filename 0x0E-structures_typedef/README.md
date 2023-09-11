@@ -1,0 +1,1 @@
+Strcture, typedef
