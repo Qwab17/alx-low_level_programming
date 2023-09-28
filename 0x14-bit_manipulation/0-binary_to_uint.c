@@ -16,7 +16,6 @@ unsigned int binary_to_uint(const char *b)
 
 	if (b == NULL)
 	{
-		perror("Error: Input string is NULL");
 		return (0);
 	}
 	result = 0;
