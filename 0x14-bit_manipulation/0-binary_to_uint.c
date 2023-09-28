@@ -11,7 +11,7 @@ unsigned int binary_to_uint(const char *b)
 {
 	unsigned int result = 0;
 	int q = 0;
-	char current_char = b[q];
+	char current_char;
 
 	if (b == NULL)
 	{
