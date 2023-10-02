@@ -21,7 +21,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	if (file_dp == -1)
 	{
-		perror("Error opening file");
 		free(buffer);
 		return (0); /* fail to read */
 	}
@@ -29,7 +28,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	bytes_read = read(file_dp, buffer, letters); /* Read file */
 	if (bytes_read == -1)
 	{
-		perror("Error reading file");
 		free(buffer);
 		close(file_dp);
 		return (0); /* fail to write */
@@ -38,7 +36,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	bytes_written = write(STDOUT_FILENO, buffer, bytes_read); /* Write */
 	if (bytes_written == -1 || bytes_written != bytes_read)
 	{
-		perror("Error writing to STDOUT");
 		free(buffer);
 		close(file_dp);
 		return (0); /* fail to write */
@@ -48,4 +45,3 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	close(file_dp);
 	return (bytes_written); /* Return letters printed */
 }
-
