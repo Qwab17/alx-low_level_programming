@@ -4,8 +4,6 @@
 #include <unistd.h> /* For read, write, close functions */
 #include <stdio.h> /* For perror */
 
-ssize_t read_textfile(const char *filename, size_t letters);
-
 /**
  * read_textfile - function that reads a text file and prints
  * @filename: file to read
