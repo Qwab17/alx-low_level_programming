@@ -1,8 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
-#include <fcntl.h> /* For open function */
-#include <unistd.h> /* For read, write, close functions */
-#include <stdio.h> /* For perror */
 
 /**
  * read_textfile - function that reads a text file and prints
