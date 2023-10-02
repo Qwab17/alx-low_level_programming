@@ -2,9 +2,9 @@
 #define MAIN_H
 
 #include <stdlib.h>
-#include <fcntl.h> /* For open function */
-#include <unistd.h> /* For read, write, close functions */
-#include <stdio.h> /* For perror */
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdio.h>
 
 int _putchar(char c);
 ssize_t read_textfile(const char *filename, size_t letters);
