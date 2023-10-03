@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 {
 	int file_source, file_dest;
 	ssize_t bytes_read, bytes_written;
-	char buffer[BUFFER_SIZE];
+	char buffer[1024];
 
 	if (argc != 3)
 	{
@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	while ((bytes_read = read(file_source, buffer, BUFFER_SIZE)) > 0)
+	while ((bytes_read = read(file_source, buffer, 1024)) > 0)
 	{
 		bytes_written = write(file_dest, buffer, bytes_read);
 		if (bytes_written == -1)
