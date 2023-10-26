@@ -27,7 +27,7 @@ void checkIfElfFile(unsigned char *e_ident)
 {
 	int index;
 
-	for (int index = 0; index < 4; index++)
+	for (index = 0; index < 4; index++)
 	{
 		if (e_ident[index] != 127 &&
 				e_ident[index] != 'E' &&
@@ -41,18 +41,18 @@ void checkIfElfFile(unsigned char *e_ident)
 }
 
 /**
- * printMagucNumbers - fxn that Prints the magic num
+ * print_magic - fxn that Prints the magic num
  * @e_ident: A pointer to an array
  * Description: separated magic numbers by spaces.
  */
 
-void printMagicNumbers(unsigned char *e_ident)
+void print_magic(unsigned char *e_ident)
 {
 	int index;
 
 	printf(" Magic: ");
 
-	for (int index = 0; index < EI_NIDENT; index++)
+	for (index = 0; index < EI_NIDENT; index++)
 	{
 		printf("%02x", e_ident[index]);
 
@@ -291,7 +291,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 
 	if (header == NULL)
 	{
-		closeFile(fileDescriptor);
+		close_elf(fileDescriptor);
 		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
 		exit(98);
 	}
@@ -302,7 +302,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	if (bytesRead == -1)
 	{
 		free(header);
-		closeFile(fileDescriptor);
+		close_elf(fileDescriptor);
 		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
@@ -311,17 +311,17 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	checkIfElfFile(header->e_ident);
 
 	printf("ELF Header:\n");
-	printMagicNumbers(header->e_ident);
-	printClassInfo(header->e_ident);
-	printDataInfo(header->e_ident);
-	printVersionInfo(header->e_ident);
-	printOsAbiInfo(header->e_ident);
-	printAbiVersion(header->e_ident);
-	printElfType(header->e_type, header->e_ident);
-	printEntryPoint(header->e_entry, header->e_ident);
+	print_magic(header->e_ident);
+	print_class(header->e_ident);
+	print_data(header->e_ident);
+	print_version(header->e_ident);
+	print_osabi(header->e_ident);
+	print_abi(header->e_ident);
+	print_type(header->e_type, header->e_ident);
+	print_entry(header->e_entry, header->e_ident);
 
 	free(header);
-	closeFile(fileDescriptor);
+	close_elf(fileDescriptor);
 
 	return (0);
 }
